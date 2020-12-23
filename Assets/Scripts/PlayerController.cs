@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour {
 		 * If the player hits a trap, take off 1 hp
 		 * we uhhh dont actually 'kill' the player though?
 		 * idk man maybe ive just played too many violent video games
+		 *
+		 * Update. I was fooled, we do reset the scene on 0 hp (see update function)
 		 */
 		if (other.tag == "Trap")
 		{
