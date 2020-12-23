@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
 	// Number of coins collected so far
 	private int score = 0;
 
+	// Player health, can be affected by traps
+	public int health = 5;
+
 	// Use this for initialization
 	void Start () {
 		// Initialize the rigidbody on our player (Using this for movement :)
@@ -30,6 +33,17 @@ public class PlayerController : MonoBehaviour {
 			score += 1;
 			Debug.Log("Score: " + score);
 			Destroy(other.gameObject);
+		}
+
+		/*
+		 * If the player hits a trap, take off 1 hp
+		 * we uhhh dont actually 'kill' the player though?
+		 * idk man maybe ive just played too many violent video games
+		 */
+		if (other.tag == "Trap")
+		{
+			health -= 1;
+			Debug.Log("Health: " + health);
 		}
 	}
 
