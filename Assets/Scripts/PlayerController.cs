@@ -10,12 +10,29 @@ public class PlayerController : MonoBehaviour {
 	// The rigidbody of the player (Used to apply force to the rigidbody comp)
 	private Rigidbody player;
 
+	// Number of coins collected so far
+	private int score = 0;
+
 	// Use this for initialization
 	void Start () {
 		// Initialize the rigidbody on our player (Using this for movement :)
 		player = GetComponent<Rigidbody>();
 	}
-	
+
+	// When this object contacts a collider with "onTrigger" enabled
+	void OnTriggerEnter(Collider other) {
+		/*
+		 * If this collider is a Pickup, increment score
+		 * Output the updated score, and destroy the Pickup
+		 */
+		if (other.tag == "Pickup")
+		{
+			score += 1;
+			Debug.Log("Score: " + score);
+			Destroy(other.gameObject);
+		}
+	}
+
 	// FixedUpdate is called consistently on time
 	void FixedUpdate() {
 
