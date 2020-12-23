@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour {
 			health -= 1;
 			Debug.Log("Health: " + health);
 		}
+
+		// Self explainatory...
+		if (other.tag == "Goal")
+		{
+			Debug.Log("You win!");
+		}
 	}
 
 	// FixedUpdate is called consistently on time
